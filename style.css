@@ -1,0 +1,319 @@
+*{
+    box-sizing: border-box;
+    opacity: 1;
+
+}
+body{
+    margin: 0;
+    width:100%;
+    
+}
+
+header{     
+    /*Flex-box*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 6px 10px gray;
+    margin-bottom: 7px;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+
+header>{
+    padding-inline: 35px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+}
+
+header h2{
+    text-align: left;
+    font: normal normal bolder 20px/27px Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    color: #333333;
+}
+
+header h4{
+    text-align: left;
+    font: normal normal 400 20px/27px Arial, Helvetica, sans-serif;
+    letter-spacing: 0;
+    color: #333333;
+}
+
+
+main{
+    width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+     "addToDoBtn . ."
+     "todo todo todo"
+     "completed completed completed";
+    justify-items: start;
+
+
+}
+
+/*Kan fjernes?*/
+main>*{
+    margin-top: 75px;
+}
+
+.addToDoButton{
+    width: 170px;
+    grid-area:addToDoBtn;
+    text-align: center;
+    font: normal normal normal 23px/32px Arial, Helvetica, sans-serif;
+    padding-block: 10px;
+    border: 1px solid black;
+    
+}
+
+.addToDoButton:hover{
+    background-color: lightseagreen;
+    cursor: pointer;
+}
+
+.toDoCards{
+    width: 90%;
+    grid-area: todo;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    row-gap:  10px;
+
+}
+
+.toDoCards>*{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    box-shadow: 0px 8px 16px #5DD3D829;
+    border-radius: 8px;
+}
+
+
+.latestToDo{
+    width: 400px;
+    height: 250px;
+}
+
+.toDoCards article>*{
+    margin-block: 0;
+}
+
+.toDoCards article h4{
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: center;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+
+    margin-inline: 20px;
+    
+}
+
+
+.toDoCards article p{
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 12px;
+    text-align: left;
+    font: normal normal normal 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+    margin-inline: 20px;
+}
+
+/*Stil for alle knapper*/
+
+button{
+    padding: 6px;
+    margin-inline: 6px;
+    border-radius: 6px;
+    color: white;
+    width: 85px;;
+    height: 35px;
+    border-style: none;
+}
+
+.deleteButton{
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background: #EF3340 0% 0% no-repeat padding-box;
+    
+    margin-left: 50px;
+
+}
+
+.deleteButton:hover{
+    background: #ed5963 0% 0% no-repeat padding-box;
+}
+
+
+.completeButton{
+    grid-row: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+
+    background: #56D4C2 0% 0% no-repeat padding-box;
+    
+}
+
+.completeButton:hover{
+    background: #76aaa3 0% 0% no-repeat padding-box;
+}
+
+.completedTodos{
+    grid-area: completed;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "title . check"
+    "tableTitle tableTitle tableTitle"
+    "content content content";
+}
+
+.completedHeader{
+    grid-area: title;
+    margin: 0;
+    text-align: left;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.filterTodoCards{
+    grid-area: check;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+    margin-right: 10%;
+    text-align: left;
+    font: normal normal medium 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #4a4c4d;    
+}
+
+ul{
+    list-style: none;
+}
+
+
+ul li{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: left;  
+}
+
+ul li>*{
+   margin-block: 6px;
+}
+
+.completedTodoTableHeader{
+    grid-area: tableTitle;
+    background: #E6E6E6 0% 0% no-repeat padding-box;
+    font: normal normal bold 14px/19px Arial, Helvetica;
+    color: #434141;
+    margin:1px;
+}
+.tableItems{
+    grid-area: content;
+
+
+    font: normal normal normal 14px/19px Arial, Helvetica;
+    letter-spacing: 0px;
+    color: #8B8B8B;
+    padding:0;
+    
+
+}
+
+.tableItems li{
+    border-bottom: 1px solid cyan;  
+    padding-left: 45px;
+}
+
+.togglePopupFormWrapper{
+    display: none; 
+    position: fixed; 
+    z-index: 1;                                     
+    left: 0;
+    top: 0; 
+    width:  100vw;
+    height: 100vh;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.togglePopupFormMain{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 8px #00000029;
+    border-radius: 8px;
+    width: 320px;
+    height: 380px;
+
+    margin: 10% auto; 
+    padding: 20px;
+}
+
+.togglePopupFormHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid lightcyan;
+}
+
+.togglePopupFormHeader>*{
+    margin-inline: 5%;
+}
+
+.togglePopupFormHeader h3{
+    font: normal normal bold 14px/43px Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.togglePopupFormHeader p{
+    padding-top: 3%;
+}
+
+.togglePopupFormHeader p:hover{
+    cursor: pointer;
+}
+
+.togglePopupForm section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-inline: 10%;
+    font: normal normal bold 12px/17px Helvetica;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.inputFld{
+    border: 1px solid #B6B6B6;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.createTodoNewButton{
+    margin-top: 5%;
+    margin-inline: 10%;
+    width: 80%;
+    background: #56D4C2 0% 0% no-repeat padding-box;
+    border-style: none;
+    font: normal normal bold 16px/22px Arial, Helvetica;
+    color:white;
+}

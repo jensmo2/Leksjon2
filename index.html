@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <title>
+            Oblig2
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+    </head>
+    <body>
+        <script src="script.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <header>
+            <h2 >HIOF</h2>
+            <h4>User user</h4>
+        </header>
+
+        <main>
+
+        <p id="toDoButton" class="addToDoButton" >+ To do</p>
+
+        <section class="toDoCards" id="toDoCards"></section>
+
+
+        <section class="completedTodos">
+            <h3 class="completedHeader">Completed todos</h3>
+            <section class="filterTodoCards">
+                <input type="checkbox" class="filterByDate" id="checkbox">
+                <label for="checkbox">Filter by date</label>
+            </section>
+            <ul class="completedTodoTableHeader">
+                <li>
+                    <h4>Title</h4>
+                    <h4>Author</h4>
+                    <h4>Description</h4>
+                    <h4>Completed date</h4>
+                </li>
+            </ul>
+            <ul class="tableItems" id="completedTodoCardsWrapper">
+            </ul>
+        </section>
+    </main>
+    <section class="togglePopupFormWrapper" id="formWrapper">
+        <section class="togglePopupFormMain">
+            <section class="togglePopupFormHeader">
+                <h3>New todo</h3>
+                <p id="exitFormButton">&#10007;</p>
+            </section>
+            <form class="togglePopupForm" id="form">
+                <section class="tooglePopupFormTitle">
+                    <label for="title">Title</label>
+                    <input required  type="text" id="title" name="title" class="inputFld">
+                </section>
+                
+                <section class="togglePopupFormDescription">
+                    <label for="description" id="descriptionLabel">Description</label>
+                    <input required  maxlength="30" type="text" id="description" name="description" class="inputFld">
+                </section>
+                
+                <section class="togglePopupFormAuthor">
+                    <label for="autor">Author</label>
+                    <input required  type="text" id="author" name="author" class="inputFld">
+                </section>
+                <input type="submit" value="Create todo" class="createNewTodoButton">
+            </form>
+        </section>
+    </section>
+    </body>
+</html>
